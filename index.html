@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pembayaran barzzverses</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://files.catbox.moe/bzelm5.jpg') center/cover no-repeat;
+    filter: blur(10px);
+    z-index: -2;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: -1;
+}
+
+/* CONTAINER */
+.container {
+    width: 350px;
+    text-align: center;
+}
+
+/* PROFILE */
+.profile img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.profile h2 {
+    margin: 10px 0 5px;
+}
+
+.profile p {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* 🔥 BUTTON RAINBOW + GLASS */
+.btn {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    background: linear-gradient(
+        270deg,
+        red,
+        purple,
+        blue,
+        green,
+        yellow,
+        red
+    );
+
+    background-size: 600% 600%;
+    animation: gradientMove 8s ease infinite;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+    filter: brightness(1.2);
+}
+
+.btn span {
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+
+/* ANIMASI WARNA */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* AUDIO HIDDEN */
+audio {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="container">
+
+    <div class="profile">
+        <img src="https://files.catbox.moe/bzelm5.jpg">
+        <h2>Barzz</h2>
+        <p>Payment & Social</p>
+    </div>
+
+    <div class="links">
+
+        <div class="btn" onclick="copyText('085283148518')">
+            DANA
+            <span>Klik untuk copy</span>
+        </div>
+
+        <div class="btn" onclick="copyText('085283148518')">
+            GOPAY
+            <span>Klik untuk copy</span>
+        </div>
+
+        <a href="https://tiktok.com/@usernamekamu" target="_blank" class="btn">
+            TIKTOK
+            <span>@BARAK PULANG NAK MAKAN</span>
+        </a>
+
+        <a href="https://instagram.com/barzzverses" target="_blank" class="btn">
+            INSTAGRAM
+            <span>@barzzverses</span>
+        </a>
+
+    </div>
+
+</div>
+
+<!-- 🎵 MUSIK -->
+<audio id="music" loop>
+    <source src="https://files.catbox.moe/xjrnfq.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+
+// autoplay
+window.addEventListener("load", () => {
+    music.play().catch(() => {});
+});
+
+// fallback klik
+document.addEventListener("click", () => {
+    music.play();
+}, { once: true });
+
+// copy function
+function copyText(text) {
+    navigator.clipboard.writeText(text)
+    .then(() => alert("Berhasil di copy!"))
+    .catch(() => alert("Gagal copy"));
+}
+</script>
+
+</body>
+</html>
